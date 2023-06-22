@@ -12,7 +12,11 @@ export const connectToDB=async ()=>{
     }
    
     try {
-        await mongoose.connect(process.env.MONGODB_URI)
+        await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "test",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
     } catch (error) {
         console.log('@Utils->DB',error);
     }
