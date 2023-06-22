@@ -1,0 +1,23 @@
+@import "https://fonts.googleapis.com/css2?family=Nunito&display=swap";
+* {
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(172, 172, 172);
+  border-radius:20px;
+}
+
+.global-background-gradient {
+  width: 100%;
+  min-height: 100vh;
+background-image: linear-gradient(to top, #d3fbfa 0%, #fbe0e9 100%);
+
+}

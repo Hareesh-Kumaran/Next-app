@@ -1,0 +1,113 @@
+@import "./constants.scss";
+
+nav {
+  width: 96%;
+  height: 50px;
+  padding: 0 2%;
+  margin-bottom: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-wrapper {
+    .home-link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgb(255, 106, 0);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+  .right-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+    .link {
+      text-decoration: none;
+      color: rgb(84, 1, 1);
+    }
+    button {
+      @include primary-button();
+      padding: 10px 15px;
+    }
+     .profile-img {
+      border-radius: 50%;
+    }
+
+    @media (max-width: 760px) {
+      display: none;
+      .responsive-nav-control-btn {
+        display: flex;
+      }
+    }
+  }
+  .responsive-nav-control-btn {
+    @include primary-button();
+    display: none;
+    background-color: rgba(255, 116, 60, 0.941);
+    @media (max-width: 760px) {
+      display: flex;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+
+  .responsive-nav-option {
+
+    
+  --s: 160px;
+  --c1: #ffc88a;
+  --c2:#f6dec3e7;;
+  
+  background:
+    conic-gradient(at 25% 25%,#0000 75%,var(--c1) 0)
+     0 calc(3*var(--s)/4),
+    conic-gradient(#0000 75%,var(--c2) 0) 
+     calc(var(--s)/-8) calc(5*var(--s)/8),
+    conic-gradient(at 5% 75%,var(--c1) 25%,var(--c2) 0);
+  background-size: var(--s) var(--s);
+
+
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(255, 116, 60, 0.941);
+    z-index: 2;
+    top: 50px;
+    right: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .link {
+      text-decoration: none;
+      color: rgb(84, 1, 1);
+    }
+    button {
+      @include primary-button();
+      padding: 5%;
+      font-size: 15px;
+    }
+   .profile-img {
+      // width: 7%;
+     
+      border-radius: 50%;
+    }
+    @media (max-width: 425px) {
+      font-size:10px;
+     width: 100px;
+    height: 150px;
+     button {
+      @include primary-button();
+      padding: 5%;
+      font-size: 10px;
+    }
+    }
+  }
+}

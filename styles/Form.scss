@@ -1,0 +1,59 @@
+@import "./constants.scss";
+form {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: 425px) {
+    font-size: 12px;
+  }
+
+  .field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  label {
+    color: rgb(115, 115, 115);
+  }
+  textarea {
+    border: none;
+    border-radius: 10px;
+    resize: vertical;
+    padding: 2%;
+    &:focus {
+      outline: .5px solid orange;
+    }
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+  background-color: rgb(172, 172, 172);
+  border-radius:20px;
+}
+  }
+  input {
+    border: none;
+    border-radius: 10px;
+    padding: 2%;
+    &:focus {
+      outline: 1.5px solid orange;
+    }
+  }
+
+  .button-wrapper {
+    margin: 3% 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    button {
+      @include primary-button();
+      padding: 2% 3%;
+    }
+    .link {
+      text-decoration: none;
+      color: rgb(84, 1, 1);
+    }
+  }
+}

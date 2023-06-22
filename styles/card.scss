@@ -1,0 +1,85 @@
+@import "./constants.scss";
+.card-wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid rgba(213, 213, 213, 0.921);
+  height: fit-content;
+  margin-bottom:2%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 0.5%;
+  .card-header {
+    width: 95%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .user-details-wrapper {
+      display: flex;
+      gap: 10px;
+      .profile-pic {
+        border-radius: 50%;
+      }
+      .username-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .profile-name {
+          color: orange;
+        }
+        .profile-email {
+          color: grey;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .card-body {
+    //   border:.5px solid black;
+    color: rgb(66, 66, 66);
+    width: 95%;
+    padding: 5% 2%;
+    font-size: 13px;
+    text-align: justify;
+  }
+  .card-footer {
+    //   border:.5px solid black;
+    p {
+      width: fit-content;
+      color: orange;
+      padding: 5% 2%;
+      font-size: 13px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .card-controller-wrapper {
+    width: 50%;
+    padding: 2% 0;
+    // background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    .control-logo {
+      cursor: pointer;
+      fill:#ff7f50;
+    }
+  }
+  @media (max-width: 1000px) {
+    width: 45%;
+    margin: 2% 0;
+  }
+  @media (max-width: 650px) {
+    width: 80%;
+    padding: 1%;
+    margin: 2% 0;
+  }
+}

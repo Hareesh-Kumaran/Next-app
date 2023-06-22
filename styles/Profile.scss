@@ -1,0 +1,44 @@
+@import "./constants.scss";
+section {
+  .description-wrapper {
+    width:95%;
+    // background-color: red;
+    padding-left:5%;
+    h1 {
+      font-weight: 300;
+      font-size: 3vw;
+      text-align: left;
+      @include orange-text-gradient();
+    }
+    p{
+        width:60%;
+        font-size:1.5vw;
+        color:rgb(82, 82, 82);
+
+    }
+  }
+
+  .promptCard-wrapper {
+    // background-color:red;
+    height: auto;
+    margin-top: 5%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    align-items: center;
+    padding: 5%;
+    .profile-noPosts
+    {
+      font-size: 2vw;
+      color: rgb(135, 135, 135);
+    }
+
+    @media (max-width: 1000px) {
+      gap: 5%;
+    }
+    @media (max-width: 650px) {
+      justify-content: space-around;
+    }
+  }
+}

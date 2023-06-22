@@ -1,0 +1,70 @@
+@import "./constants.scss";
+
+section {
+  h1 {
+    margin: 5% 0 2% 0;
+    // background-color: #ffc837;
+    text-align: center;
+    color: rgb(2, 2, 2);
+    font-size: 35px;
+    text-transform: uppercase;
+    span {
+      @include orange-text-gradient;
+    }
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+    @media (max-width: 425px) {
+      font-size: 20px;
+    }
+  }
+  .description {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(95, 95, 95);
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+    @media (max-width: 425px) {
+      font-size: 10px;
+    }
+  }
+}
+
+.input-wrapper {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+    padding: 1%;
+    &:focus {
+      outline: 1.5px solid orange;
+    }
+  }
+}
+
+.promptCard-wrapper {
+  // background-color:red;
+  height: auto;
+  margin-top: 10%;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  align-items: center;
+  padding: 5%;
+  @media (max-width: 1000px) {
+    gap:5%;
+
+  }
+    @media (max-width: 650px) {
+    justify-content: space-around;
+
+  }
+  
+}
