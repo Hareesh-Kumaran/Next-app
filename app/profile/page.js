@@ -11,10 +11,15 @@ export default function ProfilePage() {
   
   const router = useRouter();
   async function handleDelete(id) {
-    const res = await axios.delete(
-      `http://localhost:3000/api/prompt/${id}`
+    const response = await fetch(
+      `/api/prompt/${id}`,
+      {
+       method:'DELETE', 
+      }
     );
-    if (res.data.ok) {
+    const res=await response.json();
+
+    if (res.ok) {
       alert("deleted");
       
       const filteredPosts=Posts.filter((Post)=>Post._id!==id);
@@ -28,12 +33,15 @@ export default function ProfilePage() {
   }
 
   const fetchPosts = async () => {
-    const res = await axios.get(
-      `http://localhost:3000/api/prompt/user/${session?.user.id}`
+    const response = await fetch(
+      `api/prompt/user/${session?.user.id}`,{
+        method:'GET',
+      }
     );
-    console.log("fetchProfilePost", res.data);
-    if (res.data.ok) {
-      setPosts(res.data.promptList);
+    // console.log("fetchProfilePost", res.data);
+    const res=await response.json();
+    if (res.ok) {
+      setPosts(res.promptList);
     }
   };
 

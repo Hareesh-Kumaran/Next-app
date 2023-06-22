@@ -1,30 +1,35 @@
 "use client";
 import "../styles/Home.scss";
 import { useState, useEffect } from "react";
-import axios from "axios";
+
 import Card from "@/components/PromptCard";
-import ImageList from "@mui/material/ImageList";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 export default function Home() {
   const [searchValue, setSearchValue] = useState("");
   const [posts, setPosts] = useState([]);
-  const [filteredPosts,setFilteredPosts]=useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const res = await axios.get(`http://localhost:3000/api/prompt`);
-    console.log("@HK_fetchPost", res.data);
-    if (res.data.ok) {
-      setPosts(res.data.promptList);
-    }
+    const response = await fetch(`/api/prompt`, {
+      method: "GET",
+    });
+
+    const res = await response.json();
+    setPosts([...res.promptList]);
   };
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  useEffect(()=>{
-    const mathching=posts.filter((post)=>post.creator.username.includes(searchValue)||post.tag.includes(searchValue))
-    setFilteredPosts([...mathching])
-  },[searchValue]);
+  useEffect(() => {
+    const mathching = posts.filter(
+      (post) =>
+        post.creator.username.includes(searchValue) ||
+        post.tag.includes(searchValue)
+    );
+    setFilteredPosts([...mathching]);
+  }, [searchValue]);
 
   return (
     <>
@@ -47,9 +52,15 @@ export default function Home() {
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </div>
-      <div className="promptCard-wrapper">
-        {(filteredPosts.length===0)? posts.map((item) => <Card post={item} />): filteredPosts.map((item) => <Card post={item} />)}
-      </div>
+   
+
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+        <Masonry columnsCount={3} className="promptCard-wrapper">
+          {filteredPosts.length === 0
+            ? posts.map((item) => <Card post={item} />)
+            : filteredPosts.map((item) => <Card post={item} />)}
+        </Masonry>
+      </ResponsiveMasonry>
     </>
   );
 }

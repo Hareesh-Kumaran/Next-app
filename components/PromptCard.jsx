@@ -26,7 +26,7 @@ export default function Card({
     <div className="card-wrapper">
       <div className="card-header">
         <div className="user-details-wrapper">
-          <Link href={(session.user.id===post.creator._id)?"/profile":`/profile/${post.creator._id}`}>
+          <Link href={(session?.user.id===post.creator._id)?"/profile":`/profile/${post.creator._id}`}>
             <Image
               src={post.creator.image}
               width={40}

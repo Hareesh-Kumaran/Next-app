@@ -11,9 +11,12 @@ export default function UpdatePage() {
   const id = searchParams.get("id");
 
   const fetchPostById = async () => {
-    const res = await axios.get(`http://localhost:3000/api/prompt/${id}`);
-    if (res.data.prompt) {
-      setUpdatePrompt(res.data.prompt);
+    const response = await fetch(`/api/prompt/${id}`,{
+      method:"GET"
+    });
+    const res=await response.json();
+    if (res.prompt) {
+      setUpdatePrompt(res.prompt);
     }
   };
   useEffect(() => {
@@ -29,10 +32,13 @@ export default function UpdatePage() {
   }, [id]);
 
   const handleSubmit = async () => {
-    const res = await axios.patch(`http://localhost:3000/api/prompt/${id}`, {
-      prompt: updatePrompt.prompt,
-      tag: updatePrompt.tag,
-    });
+     await fetch(`/api/prompt/${id}`, {
+       method: "PATCH",
+       body: JSON.stringify({
+         prompt: updatePrompt.prompt,
+         tag: updatePrompt.tag
+       }),
+     });
 
   };
   return (

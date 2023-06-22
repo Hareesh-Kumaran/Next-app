@@ -18,16 +18,16 @@ export default function createPromptPage() {
     e.preventDefault();
 
     try {
-      const { data: res } = await axios.post(
-        "http://localhost:3000/api/prompt",
-        {
+      const response = await fetch("/api/prompt", {
+        method: "POST",
+        body: JSON.stringify({
           ...promptObj,
-          creator:session?.user.id
-          
-        }
-      );
-      console.log("@axios", res);
+              creator:session?.user.id
+        }),
+      });
       
+      const res=await response.json();
+
       if(res.ok)
         router.push('/')
     } catch (error) {}
