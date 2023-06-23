@@ -12,7 +12,7 @@ export default function Profile({
   return (
     <section>
       <div className="description-wrapper">
-        <h1>{name} Profile</h1>
+        <h1>{(!name)?(data[0]?.creator.username+" 'S"):My} Profile</h1>
         <p>{desc}</p>
       </div>
 

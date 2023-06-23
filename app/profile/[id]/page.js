@@ -6,7 +6,7 @@ export default function OtherProfile({ params }) {
   const [Posts, setPosts] = useState([]);
   const fetchPosts = async () => {
     const response = await fetch(
-      `http://localhost:3000/api/prompt/user/${params.id}`,
+      `/api/prompt/user/${params.id}`,
       {
         method: "GET",
       }
@@ -22,7 +22,6 @@ export default function OtherProfile({ params }) {
   }, []);
   return (
     <Profile
-      name={Posts[0]?.creator.username}
       desc="Explore their exceptional prompts and be inspired by the power of their imagination"
       data={Posts}
     />
