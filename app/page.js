@@ -1,7 +1,6 @@
 "use client";
 import "../styles/Home.scss";
 import { useState, useEffect } from "react";
-
 import Card from "@/components/PromptCard";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 export default function Home() {
